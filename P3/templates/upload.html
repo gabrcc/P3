@@ -1,0 +1,69 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Seleccionar columnas y gráfico</title>
+</head>
+<body>
+    <h1>Selecciona las columnas y el tipo de gráfico</h1>
+    <form action="/plot" method="post">
+        <p>
+            <label for="columns">Selecciona las columnas:</label><br>
+            <select name="columns" >
+                {% for column in columns %}
+                <option value="{{ column }}">{{ column }}</option>
+                
+                {% endfor %}
+            </select>
+        </p>
+        <p>
+            <label for="chart_type">Selecciona el tipo de gráfico:</label><br>
+            <select name="chart_type">
+                <option value="scatter">Scatter</option>
+                <option value="line">Lineal</option>
+                <option value="bar">Barras</option>
+                <option value="barh">Barras horizontales</option>
+                <option value="pie">Pie</option>
+            </select>
+        </p>
+        <input type="submit" value="Generar gráfico">
+    </form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plot</title>
+</head>
+<body>
+    <h1>Selecciona las columnas</h1>
+    
+    <form method="POST" action="/plot">
+        <label for="chart_type">Tipo de gráfico:</label>
+        <select id="chart_type" name="chart_type">
+            <option value="scatter">Scatter</option>
+            <option value="line">Line</option>
+            <option value="bar">Bar</option>
+            <option value="barh">Barh</option>
+            <option value="pie">Pie</option>
+        </select>
+        
+        <label for="x_column">Columna X:</label>
+        <select id="x_column" name="x_column">
+            {% for column in columns %}
+            <option value="{{ column }}">{{ column }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="y_column">Columna Y:</label>
+        <select id="y_column" name="y_column">
+            {% for column in columns %}
+            <option value="{{ column }}">{{ column }}</option>
+            {% endfor %}
+        </select>
+        
+        
+        <input type="submit" value="Generar gráfico">
+    </form>
+</body>
+</html>
