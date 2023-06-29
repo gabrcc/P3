@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplicación de gráficos estadísticos</title>
+</head>
+<body>
+    <h1>Bienvenido a la aplicación de gráficos estadísticos</h1>
+    <!-- <form action="/dash" method="post" >
+        <input type="text" name="variable" value="">
+        <input type="submit" value="Graficar">
+        <img src="{{ imageplot }}" alt="Line Plot">
+    </form> -->
+    <!-- <form action="/dash" method="post">
+        <select name="variable">
+            {% for column in columns %}
+            <option value="{{ column }}">{{ column }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Graficar">
+        <img src="{{ imageplot }}" alt="Line Plot">
+    </form> -->
+    <form action="/dash" method="post">
+        <select name="variable">
+            {% for column in columns %}
+            <option value="{{ column }}">{{ column }}</option>
+            {% endfor %}
+        </select>
+        <select name="chart_type">
+            {% for chart_type in chart_types %}
+            <option value="{{ chart_type }}">{{ chart_type }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Graficar">
+        <img id="plot-image" class="hidden" src="{{ imageplot }}" alt="Line Plot">
+    </form>
+    
+    
+</body>
+</html>
